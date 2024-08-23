@@ -20,14 +20,14 @@ public class Evento {
 
     //Constructor
     public Evento( String nombreEvento, String decripEvento, LocalDateTime fechaHora, String ubicacion,
-            int capacidad, Chef chefACargo) {
+            int capacidad) {
         this.idEvento = UUID.randomUUID();
         this.nombreEvento = nombreEvento;
         this.decripEvento = decripEvento;
         this.fechaHora = fechaHora;
         this.ubicacion = ubicacion;
         this.capacidad = capacidad;
-        this.chefACargo = chefACargo;
+        this.chefACargo = null;
         this.participantes = new HashMap<>();
     }
     
