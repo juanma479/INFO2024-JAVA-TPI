@@ -23,18 +23,26 @@ public class MenuServiceImpl implements MenuService{
     @Override
     public void mostrarMenu() {
         
-        System.out.println("Sistema de Gestión de Eventos de Cocina y Gastronomía");
+        System.out.println("Gestión de Eventos de Cocina y Gastronomía");
         System.out.println("1. Crear Evento");
-        System.out.println("2. Listar Eventos");
-        System.out.println("3. Salir");
+        System.out.println("2. Asignar Chef");
+        System.out.println("3. Inscribir Participante");
+        System.out.println("4. Escribir una Reseña");
+        System.out.println("5. Consultar Eventos Disponibles");
+        System.out.println("6. Exportar info de Eventos sin cupo.");
+        System.out.println("7. Salir");
     }
 
     @Override
     public void procesarOpcion(int opcion) {
         switch (opcion) {
             case 1 -> crearEvento(scanner);
-            case 2 -> listarEventosDisponibles(scanner);
-            case 3 -> {
+            case 2 -> asignarChef();
+            case 3 -> incribirParticipante();
+            case 4 -> escribirResena();
+            case 5 -> listarEventosDisponibles(scanner);
+            case 6 -> exportarArchivo();
+            case 7 -> {
                 System.out.println("Saliendo del sistema.");
                 System.exit(0);
             }
@@ -42,12 +50,32 @@ public class MenuServiceImpl implements MenuService{
         }
     }
 
+    
+
     private void crearEvento(Scanner scanner) {
         Evento nuevoEvento = eventoService.crearEvento(scanner);
         String nombreEvento = nuevoEvento.getNombreEvento();
         sistemaService.agregarEvento(nombreEvento, nuevoEvento);
 
     }
+
+    private Object asignarChef() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'asignarChef'");
+    }
+
+
+    private Object incribirParticipante() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'incribirParticipante'");
+    }
+
+
+    private Object escribirResena() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'escribirResena'");
+    }
+
 
     private void listarEventosDisponibles(Scanner scanner){
         List<Evento> eventos = sistemaService.listarEventosDisponibles(scanner);
@@ -61,6 +89,11 @@ public class MenuServiceImpl implements MenuService{
         });
         
     }
+    }
+
+    private Object exportarArchivo() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'exportarArchivo'");
     }
 
 }

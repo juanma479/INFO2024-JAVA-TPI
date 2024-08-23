@@ -6,6 +6,7 @@ import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
 import com.gastronomia.eventos.domain.Evento;
+import com.gastronomia.eventos.domain.Participante;
 import com.gastronomia.eventos.service.evento.EventoService;
 
 public class EventoServiceImpl implements EventoService {
@@ -48,6 +49,26 @@ public class EventoServiceImpl implements EventoService {
         System.out.println("Evento creado exitosamente");
         return nuevoEvento;
 
+    }
+
+    @Override
+    public void inscribirParticipante(Participante participante, Evento evento) {
+        if (participante == null || evento == null) {
+            System.out.println("Participante o evento no puede ser nulo.");
+            return;
+        }
+    
+        String nombreCompletoPart = participante.getNombreParticipante() + " " + participante.getApellidoParticipante();
+    
+        //Manejo de participante ya inscripto y evento a capacidad máxima
+        if (evento.getParticipantes().containsKey(nombreCompletoPart)) {
+            System.out.println("El participante " + nombreCompletoPart + " ya está inscrito en este evento.");
+        } else if (evento.getParticipantes().size() == evento.getCapacidad()) {
+            System.out.println("El evento " + evento.getNombreEvento() + " ha alcanzado su capacidad máxima.");
+        } else {
+            evento.getParticipantes().put(nombreCompletoPart, participante);
+            System.out.println("Participante " + nombreCompletoPart + " inscrito exitosamente.");
+        }
     }
 
 }
