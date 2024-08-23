@@ -60,6 +60,7 @@ public class EventoServiceImpl implements EventoService {
         // Manejo de participante ya inscripto y evento a capacidad máxima
         if (evento.getChefACargo() == null) {
             evento.setChefACargo(chef);
+            chef.getEventosAsig().add(evento);
             System.out.println("Chef " + chef.getNombreChef() + " asignado al evento exitosamente.");
         } else {
             System.out.println("El evento " + evento.getNombreEvento() + " ya tiene un chef asignado.");
