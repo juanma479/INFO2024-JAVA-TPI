@@ -14,18 +14,18 @@ public class EventoServiceImpl implements EventoService {
     public Evento crearEvento(Scanner scanner) {
         System.out.println("Ingrese el nombre del evento: ");
         String nombreEvento = scanner.nextLine();
-        scanner.nextLine();
+        
 
         System.out.println("Ingrese una descripción del evento: ");
         String descripEvento = scanner.nextLine();
         
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
         LocalDateTime fechaHora = null;
         boolean fechaHoraValida = false;
 
         // Solicitar y validar la fecha y hora del evento
         while (!fechaHoraValida) {
-            System.out.println("Ingrese la fecha y hora del evento (dd/MM/yyyy HH:mm): ");
+            System.out.println("Ingrese la fecha y hora del evento (dd-MM-yyyy HH:mm): ");
             String fechaHoraStr = scanner.nextLine();
 
             try {

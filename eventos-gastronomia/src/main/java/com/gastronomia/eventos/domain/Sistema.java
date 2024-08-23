@@ -25,4 +25,10 @@ public class Sistema {
         eventos.remove(nombreEvento);
     }
 
+
+    //Getter
+    public Map<String, Evento> getEventos() {
+        return eventos;
+    }
+
 }
