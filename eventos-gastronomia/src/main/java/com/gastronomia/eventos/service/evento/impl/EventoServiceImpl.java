@@ -87,4 +87,12 @@ public class EventoServiceImpl implements EventoService {
         }
     }
 
+    @Override
+    public Participante obtenerParticipante(String nombreParticipante, Evento evento) {
+        Participante participante = evento.getParticipantes().get(nombreParticipante);
+
+        return participante;
+    }
+    
+
 }

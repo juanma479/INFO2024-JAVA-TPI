@@ -10,5 +10,6 @@ public interface EventoService {
     Evento crearEvento(Scanner scanner);
     void asignarChef(Chef chef, Evento evento);
     void inscribirParticipante(Participante participante, Evento evento);
+    Participante obtenerParticipante(String nombreParticipante, Evento evento);
 
 }

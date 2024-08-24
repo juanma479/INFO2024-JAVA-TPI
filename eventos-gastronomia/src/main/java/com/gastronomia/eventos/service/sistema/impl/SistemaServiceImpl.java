@@ -38,6 +38,18 @@ public class SistemaServiceImpl implements SistemaService {
     }
 
     @Override
+    public Evento obtenerEvento(String nombreEvento) {
+        return sistema.obtenerEvento(nombreEvento);
+    
+    }
+
+    @Override
+    public void eliminarEvento(String nombreEvento) {
+        sistema.eliminarEvento(nombreEvento);
+    }
+    
+
+    @Override
     public List<Evento> listarEventosDisponibles(Scanner scanner) {
         //Solicitamos una fecha de refrencia
         System.out.println("Ingrese una fecha en formato (dd-MM-yyyy):");
@@ -83,6 +95,8 @@ public class SistemaServiceImpl implements SistemaService {
                 evento.getParticipantes().size() == evento.getCapacidad())
             .collect(Collectors.toList());
     }
+
+   
 
 
     

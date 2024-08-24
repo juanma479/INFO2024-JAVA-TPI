@@ -9,6 +9,8 @@ public interface SistemaService {
 
     void iniciarSistema();
     void agregarEvento(String nombreEvento,Evento evento);
+    Evento obtenerEvento(String nombreEvento);
+    void eliminarEvento(String nombreEvento);
     List<Evento> listarEventosDisponibles(Scanner scanner);
     List<Evento> listarEventosNoDisponibles(Scanner scanner);
 }
