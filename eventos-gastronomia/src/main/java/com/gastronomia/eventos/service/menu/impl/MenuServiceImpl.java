@@ -210,9 +210,8 @@ public class MenuServiceImpl implements MenuService {
 
     private void exportarArchivo(Scanner scanner) {
         List <Evento> eventos = sistemaService.listarEventosNoDisponibles(scanner);
-        String rutaArchivo = System.getProperty("user.home") + "/Desktop";
 
-        exportArchivoService.exportarEventos(eventos, rutaArchivo);
+        exportArchivoService.exportarEventos(eventos);
 
     }
 
