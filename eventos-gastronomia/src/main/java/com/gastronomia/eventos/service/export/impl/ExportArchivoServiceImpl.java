@@ -12,7 +12,7 @@ import com.opencsv.CSVWriter;
 public class ExportArchivoServiceImpl implements ExportArchivoService {
 
     // Definir la ubicación del archivo como el escritorio del usuario
-    private final String UBICACION_DESKTOP = System.getProperty("user.home") + "\\Desktop\\";
+    private final String UBICACION_DESKTOP = "\\src\\main\\java\\com\\gastronomia\\eventos\\";
 
     private CSVWriter csvWriter;
 
