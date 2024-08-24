@@ -14,11 +14,10 @@ public class Resena {
     
 
     //Constructor
-    public Resena(Evento evento, Participante autor, CalificacionEnum calificacion, String comentario) {
+    public Resena(Evento evento, Participante autor, String comentario) {
         this.idresena = UUID.randomUUID();
         this.evento = evento;
         this.autor = autor;
-        this.calificacion = calificacion;
         this.comentario = comentario;
     }
 
