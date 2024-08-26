@@ -57,14 +57,8 @@ public class SistemaServiceImpl implements SistemaService {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
-        LocalDate fecha;
-        try {
-            fecha = LocalDate.parse(fechaStr, formatter);
-        } catch (Exception e) {
-            System.out.println("Formato de fecha inválido. Por favor use el formato (dd-MM-yyyy).");
-            return List.of(); // Devuelve una lista vacía en caso de error
-        }
-
+        LocalDate fecha = LocalDate.parse(fechaStr, formatter);;
+        
         // Filtra los eventos según la fecha y la capacidad
         return sistema.getEventos().values().stream()
             .filter(evento -> evento.getFechaHora().toLocalDate().isEqual(fecha) &&
@@ -81,13 +75,8 @@ public class SistemaServiceImpl implements SistemaService {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
-        LocalDate fecha;
-        try {
-            fecha = LocalDate.parse(fechaStr, formatter);
-        } catch (Exception e) {
-            System.out.println("Formato de fecha inválido. Por favor use el formato (dd-MM-yyyy).");
-            return List.of(); // Devuelve una lista vacía en caso de error
-        }
+        LocalDate fecha = LocalDate.parse(fechaStr, formatter);
+        
 
         // Filtra los eventos según la fecha y la capacidad
         return sistema.getEventos().values().stream()

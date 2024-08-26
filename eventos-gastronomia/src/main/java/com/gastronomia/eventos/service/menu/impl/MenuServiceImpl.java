@@ -99,14 +99,8 @@ public class MenuServiceImpl implements MenuService {
             return; // Salir del método si el evento no existe
         }
     
-        // Eliminar el evento del sistema antes de modificarlo
-        sistemaService.eliminarEvento(nombreEvento);
-    
         // Asignar el chef al evento
         eventoService.asignarChef(nuevoChef, evento);
-    
-        // Agregar nuevamente el evento modificado al sistema
-        sistemaService.agregarEvento(nombreEvento, evento);
     
         System.out.println("El Chef " + nuevoChef.getNombreChef() + " ha sido asignado al evento " + nombreEvento + " exitosamente.");
     }
@@ -134,16 +128,11 @@ public class MenuServiceImpl implements MenuService {
             System.out.println("El evento con el nombre '" + nombreEvento + "' no fue encontrado. Operación cancelada.");
             return; // Salir del método si el evento no existe
         }
-    
-    
-        // Eliminar el evento del sistema antes de modificarlo
-        sistemaService.eliminarEvento(nombreEvento);
+
     
         // Inscribir el participante en el evento
         eventoService.inscribirParticipante(nuevoParticipante, evento);
-    
-        // Agregar nuevamente el evento modificado al sistema
-        sistemaService.agregarEvento(nombreEvento, evento);
+
     
         System.out.println("Participante " + nuevoParticipante.getNombreParticipante() + " " + nuevoParticipante.getApellidoParticipante() + " inscrito exitosamente en el evento " + nombreEvento + ".");
     }

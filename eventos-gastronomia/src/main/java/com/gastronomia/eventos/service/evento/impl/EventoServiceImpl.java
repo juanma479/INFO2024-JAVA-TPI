@@ -57,7 +57,7 @@ public class EventoServiceImpl implements EventoService {
             return;
         }
 
-        // Manejo de participante ya inscripto y evento a capacidad máxima
+        // Manejo de chef ya inscripto.
         if (evento.getChefACargo() == null) {
             evento.setChefACargo(chef);
             chef.getEventosAsig().add(evento);
