@@ -57,7 +57,7 @@ public class SistemaServiceImpl implements SistemaService {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
-        LocalDate fecha = LocalDate.parse(fechaStr, formatter);;
+        LocalDate fecha = LocalDate.parse(fechaStr, formatter);
         
         // Filtra los eventos según la fecha y la capacidad
         return sistema.getEventos().values().stream()
