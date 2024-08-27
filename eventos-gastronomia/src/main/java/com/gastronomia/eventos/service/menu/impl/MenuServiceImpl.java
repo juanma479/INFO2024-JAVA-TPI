@@ -39,6 +39,7 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Override
+    //Plantilla que se muestra de menú principal
     public void mostrarMenu() {
 
         System.out.println("Gestión de Eventos de Cocina y Gastronomía");
@@ -52,6 +53,7 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Override
+    // Método que ejecuta las funcionalidades acorde a la opción seleccionada.
     public void procesarOpcion(int opcion) {
         switch (opcion) {
             case 1 -> crearEvento(scanner);
@@ -68,6 +70,7 @@ public class MenuServiceImpl implements MenuService {
         }
     }
 
+    // Métodos del menú con la lógica para cada funcionalidades.
     private void crearEvento(Scanner scanner) {
         Evento nuevoEvento = eventoService.crearEvento(scanner);
         String nombreEvento = nuevoEvento.getNombreEvento();
@@ -102,6 +105,7 @@ public class MenuServiceImpl implements MenuService {
         // Asignar el chef al evento
         eventoService.asignarChef(nuevoChef, evento);
     
+        //Mensaje de confirmación
         System.out.println("El Chef " + nuevoChef.getNombreChef() + " ha sido asignado al evento " + nombreEvento + " exitosamente.");
     }
 
@@ -133,7 +137,7 @@ public class MenuServiceImpl implements MenuService {
         // Inscribir el participante en el evento
         eventoService.inscribirParticipante(nuevoParticipante, evento);
 
-    
+        // Mensaje de confirmación
         System.out.println("Participante " + nuevoParticipante.getNombreParticipante() + " " + nuevoParticipante.getApellidoParticipante() + " inscrito exitosamente en el evento " + nombreEvento + ".");
     }
     
@@ -147,7 +151,7 @@ public class MenuServiceImpl implements MenuService {
         System.out.println("Ingrese el nombre del evento sobre el que desea escribir:");
         String nombreEvento = scanner.nextLine().trim();
     
-        // Obtener el evento del sistema
+        // Buscar el evento del sistema
         Evento evento = sistemaService.obtenerEvento(nombreEvento);
     
         // Verificar si el evento existe
@@ -156,7 +160,7 @@ public class MenuServiceImpl implements MenuService {
             return; // Salir del método si el evento no existe
         }
     
-        // Obtener al participante autor de la reseña
+        // Buscar al participante autor de la reseña
         Participante autor = eventoService.obtenerParticipante(nombreAutor, evento);
     
         // Verificar si el participante existe en el evento
@@ -177,15 +181,19 @@ public class MenuServiceImpl implements MenuService {
         // Agregar la reseña al participante
         participanteService.agregarResena(autor, nuevaResena);
     
+        //Mensaje de confirmación
         System.out.println("Reseña agregada exitosamente para el evento '" + nombreEvento + "'.");
     }
     
 
     private void listarEventosDisponibles(Scanner scanner) {
+        //Creamos una lista con el método de listar eventos disponibles
         List<Evento> eventos = sistemaService.listarEventosDisponibles(scanner);
+        //Verificamos que la lista no este vacía
         if (eventos.isEmpty()) {
             System.out.println("No hay eventos registrados.");
         } else {
+            // Mostramos por consola cada elemento de la lista
             System.out.println("Eventos disponibles");
             eventos.forEach(evento -> {
                 System.out.println("Nombre del Evento: " + evento.getNombreEvento() +
@@ -198,8 +206,11 @@ public class MenuServiceImpl implements MenuService {
 
 
     private void exportarArchivo(Scanner scanner) {
+
+        //Creamos una lista con el método de listar eventos no disponibles
         List <Evento> eventos = sistemaService.listarEventosNoDisponibles(scanner);
 
+        //Con la lista creada como parámetro llamamos al método que exporta archivos
         exportArchivoService.exportarEventos(eventos);
 
     }

@@ -29,7 +29,7 @@ public class SistemaServiceImpl implements SistemaService {
         sistema = new Sistema();
 
         // Mensaje de confirmación
-        System.out.println("Sistema de Gestión de Eventos de Cocina y Gastronomía iniciado correctamente.");
+        System.out.println("Sistema iniciado.");
     }
 
     @Override

@@ -10,7 +10,7 @@ public class ChefServiceImpl implements ChefService{
     @Override
     public Chef crearChef(Scanner scanner) {
         
-        // Nombre del Chef
+        // Ingresar el nombre del Chef
     System.out.println("Ingrese el nombre del Chef: ");
     String nombreChef = scanner.nextLine().trim();
     
@@ -20,7 +20,7 @@ public class ChefServiceImpl implements ChefService{
         return null;
     }
 
-    // Leer la especialidad del Chef
+    // Ingresar la especialidad del Chef
     System.out.println("Ingrese la especialidad del Chef: ");
     String especialidad = scanner.nextLine().trim();
 

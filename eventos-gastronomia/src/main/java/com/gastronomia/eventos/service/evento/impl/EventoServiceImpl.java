@@ -14,14 +14,19 @@ public class EventoServiceImpl implements EventoService {
 
     @Override
     public Evento crearEvento(Scanner scanner) {
+        //Solicitar nombre del evento
         System.out.println("Ingrese el nombre del evento: ");
         String nombreEvento = scanner.nextLine();
 
+        //Solicitar una descripción del evento
         System.out.println("Ingrese una descripción del evento: ");
         String descripEvento = scanner.nextLine();
 
+        //Variable para que dará formato a la fecha y hora
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
         LocalDateTime fechaHora = null;
+
+        //Variable boolean para validar formato de fecha
         boolean fechaHoraValida = false;
 
         // Solicitar y validar la fecha y hora del evento
@@ -37,13 +42,16 @@ public class EventoServiceImpl implements EventoService {
             }
         }
 
+        //Solicitar ubicación del evento
         System.out.println("Ingrese donde se realizará el evento: ");
         String ubicacion = scanner.nextLine();
 
+        //Solicitar capacidad del evento
         System.out.println("Ingrese capacidad máxima del evento: ");
         int capacidad = scanner.nextInt();
         scanner.nextLine();
 
+        //Crea y devuelve el nuevo evento
         Evento nuevoEvento = new Evento(nombreEvento, descripEvento, fechaHora, ubicacion, capacidad);
         System.out.println("Evento creado exitosamente");
         return nuevoEvento;

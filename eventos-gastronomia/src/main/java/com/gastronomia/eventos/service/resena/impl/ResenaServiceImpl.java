@@ -13,12 +13,14 @@ public class ResenaServiceImpl implements ResenaService {
     @Override
     public Resena crearResena(Scanner scanner, Evento evento, Participante autor) {
 
+        //Solicitamos el comentario que va en la reseña
         System.out.println("Deje un comentario sobre el evento.");
         String comentario = scanner.nextLine();
 
+        //Creamos la nueva reseña
         Resena nuevaResena = new Resena(evento, autor, comentario);
 
-        // 
+        // Lógica para establecer calificación con enum.
         System.out.print("Califique el evento " + evento.getNombreEvento() + " del 1 al 5: ");
         int opcionSeleccionada = scanner.nextInt();
 
@@ -35,6 +37,7 @@ public class ResenaServiceImpl implements ResenaService {
                     default -> null;
                 }
         );
+        //Terminamos y devolvemos la nueva reseña
         return nuevaResena ;
     }
 
