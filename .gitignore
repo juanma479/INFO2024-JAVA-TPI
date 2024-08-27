@@ -1,5 +1,4 @@
 # Ignorar las carpetas generadas por Maven
-/target/
 
 #Archivos de compilacion
 out

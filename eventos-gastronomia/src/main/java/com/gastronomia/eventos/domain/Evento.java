@@ -10,7 +10,7 @@ public class Evento {
     //Atributos
     private UUID idEvento;
     private String nombreEvento;
-    private String decripEvento;
+    private String descripEvento;
     private LocalDateTime fechaHora;
     private String ubicacion;
     private int capacidad;
@@ -19,15 +19,15 @@ public class Evento {
     private Map<String, Participante> participantes;
 
     //Constructor
-    public Evento( String nombreEvento, String decripEvento, LocalDateTime fechaHora, String ubicacion,
-            int capacidad, Chef chefACargo) {
+    public Evento( String nombreEvento, String descripEvento, LocalDateTime fechaHora, String ubicacion,
+            int capacidad) {
         this.idEvento = UUID.randomUUID();
         this.nombreEvento = nombreEvento;
-        this.decripEvento = decripEvento;
+        this.descripEvento = descripEvento;
         this.fechaHora = fechaHora;
         this.ubicacion = ubicacion;
         this.capacidad = capacidad;
-        this.chefACargo = chefACargo;
+        this.chefACargo = null;
         this.participantes = new HashMap<>();
     }
     
@@ -51,11 +51,11 @@ public class Evento {
 
 
     public String getDecripEvento() {
-        return decripEvento;
+        return descripEvento;
     }
 
-    public void setDecripEvento(String decripEvento) {
-        this.decripEvento = decripEvento;
+    public void setDecripEvento(String descripEvento) {
+        this.descripEvento = descripEvento;
     }
 
 
